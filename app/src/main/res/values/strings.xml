@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Калькулятор</string>
+    <string name="Label1">Калькулятор</string>
+    <string name="btLabel">Рассчитать</string>
+    <string name="hintNum1">Введите число 1</string>
+    <string name="hintNum2">Введите число 2</string>
+    <string name="hintOper">Введите оператор</string>
+    <string name="resField">Результат</string>
+</resources>
