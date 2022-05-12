@@ -94,7 +94,6 @@
         android:textSize="30dp"/>
     <Button
         android:id="@+id/btRasschet"
-        android:onClick="btRass"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:text="@string/btLabel"

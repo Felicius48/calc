@@ -25,11 +25,62 @@ public class MainActivity extends AppCompatActivity {
     Button bt4;
     TextView resfield;
     String oper;
+    public Button rass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        num1 = findViewById(R.id.num1);
+        num2 = findViewById(R.id.num2);
+        bt1 = findViewById(R.id.oneBt1);
+        bt2 = findViewById(R.id.oneBt2);
+        bt3 = findViewById(R.id.oneBt3);
+        bt4 = findViewById(R.id.oneBt4);
+        resfield = findViewById(R.id.resField);
+        rass = findViewById(R.id.btRasschet);
+
+        rass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int a = Integer.parseInt(num1.getText().toString());
+                int b = Integer.parseInt(num2.getText().toString());
+                int res;
+
+                if (oper.equals("+")){
+
+                    res = a + b;
+                    String r = Integer.toString(res);
+                    String a1 = Integer.toString(a);
+                    String a2 = Integer.toString(b);
+                    resfield.setText(a +" + " + b + " = " + r);
+                }
+                if (oper.equals("-")){
+                    res = a - b;
+                    String r = Integer.toString(res);
+                    String a1 = Integer.toString(a);
+                    String a2 = Integer.toString(b);
+                    resfield.setText(a +"-" + b + " = " + r);
+                }
+                if (oper.equals("*")){
+                    res = a * b;
+                    String r = Integer.toString(res);
+                    String a1 = Integer.toString(a);
+                    String a2 = Integer.toString(b);
+                    resfield.setText(a +"*" + b + " = " + r);
+                }
+                if (oper.equals("/")){
+                    res = a / b;
+                    String r = Integer.toString(res);
+                    String a1 = Integer.toString(a);
+                    String a2 = Integer.toString(b);
+                    resfield.setText(a +"/" + b + " = " + r);
+                }
+                if (num1 == null){
+                }
+            }
+        });
+
     }
 
     public boolean onCreateOptionsMenu(Menu menu){
@@ -63,83 +114,27 @@ public class MainActivity extends AppCompatActivity {
     public void click(View view){
         Button button = (Button) view;
         String op = button.getText().toString();
-        if (op.equals("+")){
-            Toast toast = Toast.makeText(this, "Вы выбрали сложение!", Toast.LENGTH_SHORT);
-            toast.show();
-        }
-        if (op.equals("-")){
-            Toast toast = Toast.makeText(this, "Вы выбрали вычитание!", Toast.LENGTH_SHORT);
-            toast.show();
-        }
-        if (op.equals("*")){
-            Toast toast = Toast.makeText(this, "Вы выбрали умножение!", Toast.LENGTH_SHORT);
-            toast.show();
-        }
-        if (op.equals("/")){
-            Toast toast = Toast.makeText(this, "Вы выбрали деление!", Toast.LENGTH_SHORT);
-            toast.show();
-        }
+            if (op.equals("+")){
+                Toast toast = Toast.makeText(this, "Вы выбрали сложение!", Toast.LENGTH_SHORT);
+                toast.show();
+            }
+            if (op.equals("-")){
+                Toast toast = Toast.makeText(this, "Вы выбрали вычитание!", Toast.LENGTH_SHORT);
+                toast.show();
+            }
+            if (op.equals("*")){
+                Toast toast = Toast.makeText(this, "Вы выбрали умножение!", Toast.LENGTH_SHORT);
+                toast.show();
+            }
+            if (op.equals("/")){
+                Toast toast = Toast.makeText(this, "Вы выбрали деление!", Toast.LENGTH_SHORT);
+                toast.show();
+            }
+
         oper = op;
 
     }
 
-    public void btRass(View view){
-        num1 = findViewById(R.id.num1);
-        num2 = findViewById(R.id.num2);
-        bt1 = findViewById(R.id.oneBt1);
-        bt2 = findViewById(R.id.oneBt2);
-        bt3 = findViewById(R.id.oneBt3);
-        bt4 = findViewById(R.id.oneBt4);
-        resfield = findViewById(R.id.resField);
-
-        int a = Integer.parseInt(num1.getText().toString());
-        int b = Integer.parseInt(num2.getText().toString());
-        int res;
-        try {
-            if (oper.equals("+")){
-
-                res = a + b;
-                String r = Integer.toString(res);
-                String a1 = Integer.toString(a);
-                String a2 = Integer.toString(b);
-                resfield.setText(a +" + " + b + " = " + r);
-            }
-            if (oper.equals("-")){
-                res = a - b;
-                String r = Integer.toString(res);
-                String a1 = Integer.toString(a);
-                String a2 = Integer.toString(b);
-                resfield.setText(a +"-" + b + " = " + r);
-            }
-            if (oper.equals("*")){
-                res = a * b;
-                String r = Integer.toString(res);
-                String a1 = Integer.toString(a);
-                String a2 = Integer.toString(b);
-                resfield.setText(a +"*" + b + " = " + r);
-            }
-            if (oper.equals("/")){
-                res = a / b;
-                String r = Integer.toString(res);
-                String a1 = Integer.toString(a);
-                String a2 = Integer.toString(b);
-                resfield.setText(a +"/" + b + " = " + r);
-            }
-            if (num1 == null){
-                Toast toast = Toast.makeText(this, "Заполните все поля!!!", Toast.LENGTH_LONG);
-                toast.show();
-            }
-        }
-        catch (Exception e){
-            Toast toast = Toast.makeText(this, "Заполните все поля!!!", Toast.LENGTH_LONG);
-            toast.show();
-        }
-
-
-
-
-
-    }
 
     public void btClear(View view){
            resfield.setText("");
